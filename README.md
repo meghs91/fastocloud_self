@@ -104,7 +104,7 @@ Build documentation: [Build FastoCloud](https://github.com/fastogt/fastocloud/wi
 License
 =======
 
-Copyright (C) 2014-2020 FastoGT (https://fastogt.com)
+Copyright (C) 2014-2020 FastoGT(https://fastogt.com)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 3 as 
@@ -121,6 +121,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 Work with US
 =======
 
-[IPTV presentation] (https://fastogt.com/static/projects/fastocloud_iptv.pdf)
+[IPTV presentation](https://fastogt.com/static/projects/fastocloud_iptv.pdf)
 
-[MEDIA presentation] (https://fastogt.com/static/projects/fastocloud_for.pdf)
+[MEDIA presentation](https://fastogt.com/static/projects/fastocloud_for.pdf)
