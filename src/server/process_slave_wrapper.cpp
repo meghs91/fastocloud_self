@@ -654,9 +654,10 @@ common::ErrnoError ProcessSlaveWrapper::HandleRequestClientStopService(Protocole
   CHECK(loop_->IsLoopThread());
   if (!dclient->IsVerified()) {
     const auto info = dclient->GetInfo();
-    common::net::HostAndPort host(info.host(), info.port());
     if (!config_.host.IsSameHost(info.host())) {
-      return common::make_errno_error_inval();
+      common::Error err(common::MemSPrintf("Skiped stop request from: %s", info.host()));
+      ignore_result(dclient->StopFail(req->id, err));
+      return common::make_errno_error(err->GetDescription(), EINVAL);
     }
   }
 
