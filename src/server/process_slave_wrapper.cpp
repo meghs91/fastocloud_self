@@ -155,13 +155,8 @@ common::ErrnoError ProcessSlaveWrapper::SendStopDaemonRequest(const Config& conf
     return common::make_errno_error_inval();
   }
 
-  common::net::HostAndPort host = config.host;
-  if (host.GetHost() == PROJECT_NAME_LOWERCASE) {  // docker image
-    host = common::net::HostAndPort::CreateLocalHostIPV4(host.GetPort());
-  }
-
   common::net::socket_info client_info;
-  common::ErrnoError err = common::net::connect(host, common::net::ST_SOCK_STREAM, nullptr, &client_info);
+  common::ErrnoError err = common::net::connect(config.host, common::net::ST_SOCK_STREAM, nullptr, &client_info);
   if (err) {
     return err;
   }
@@ -660,7 +655,7 @@ common::ErrnoError ProcessSlaveWrapper::HandleRequestClientStopService(Protocole
   if (!dclient->IsVerified()) {
     const auto info = dclient->GetInfo();
     common::net::HostAndPort host(info.host(), info.port());
-    if (!host.IsLocalHost()) {
+    if (!config_.host.IsSameHost(info.host())) {
       return common::make_errno_error_inval();
     }
   }
