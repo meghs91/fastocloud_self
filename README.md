@@ -124,3 +124,5 @@ Work with US
 [IPTV presentation](https://fastogt.com/static/projects/fastocloud_iptv.pdf)
 
 [MEDIA presentation](https://fastogt.com/static/projects/fastocloud_for.pdf)
+
+[For RTMP broadcasters](https://pubsub.me)
